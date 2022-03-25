@@ -1,6 +1,8 @@
 // import { hmrPlugin, presets } from '@open-wc/dev-server-hmr';
 import rollupReplace from '@rollup/plugin-replace';
+import { importMetaAssets as _importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 import { fromRollup } from '@web/dev-server-rollup';
+
 const replace = fromRollup(rollupReplace);
 
 /** Use Hot Module replacement by adding --hmr to the start command */
@@ -16,7 +18,7 @@ export default /** @type {import('@web/dev-server').DevServerConfig} */ ({
   plugins: [
     replace({
       preventAssignment: true,
-      'process.env.NODE_ENV': JSON.stringify( 'production' )
-    })
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
   ],
 });
