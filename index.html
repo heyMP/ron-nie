@@ -11,18 +11,43 @@
     html,
     body {
       margin: 0;
-      padding: 0;
+      padding: 1rem;
       font-family: sans-serif;
       background-color: #ededed;
     }
+
+    .preview {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
   </style>
-  <title>rh-element</title>
+  <title>ron-nie</title>
 </head>
 
 <body>
-  <rh-element></rh-element>
+  <h1>Ronnie Component</h1>
 
-  <script type="module" src="./out-tsc/src/rh-element.js"></script>
+  <div class="preview">
+    <ron-nie></ron-nie>
+    <div>
+      <select id="select">
+        <option value="happy">happy</option>
+        <option value="unhappy">unhappy</option>
+        <option value="confused">confused</option>
+        <option value="frustrated">frustrated</option>
+      </select>
+    </div>
+  </div>
+
+  <script type="module" src="./out-tsc/src/ron-nie.js"> </script>
+  <script type="module">
+    document.querySelector('#select')?.addEventListener('input', e => {
+      document.querySelector('ron-nie').emotion = e.target.value;
+    });
+  </script>
 </body>
 
 </html>
